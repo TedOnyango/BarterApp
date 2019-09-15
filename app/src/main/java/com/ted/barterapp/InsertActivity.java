@@ -12,6 +12,7 @@ public class InsertActivity extends AppCompatActivity {
     EditText itemTitle;
     EditText itemDescription;
     EditText itemValue;
+    EditText preferredItems;
     Button saveBtn;
 
 
@@ -24,6 +25,8 @@ public class InsertActivity extends AppCompatActivity {
         itemTitle = (EditText) findViewById(R.id.itemTitle);
         itemDescription = (EditText) findViewById(R.id.itemDescription);
         itemValue = (EditText) findViewById(R.id.itemValue);
+        preferredItems = (EditText) findViewById(R.id.preferredItems);
+
         saveBtn = (Button) findViewById(R.id.saveBtn);
 
     }

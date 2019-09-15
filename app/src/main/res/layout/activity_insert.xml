@@ -54,16 +54,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemDescription" />
 
+    <EditText
+        android:id="@+id/preferredItems"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/preferred_items"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemValue" />
+
     <Button
         android:id="@+id/saveBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/standard_margin"
-        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="@dimen/standard_margin"
         android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemValue" />
+        app:layout_constraintTop_toBottomOf="@+id/preferredItems" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

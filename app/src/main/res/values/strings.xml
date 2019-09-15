@@ -4,4 +4,5 @@
     <string name="item_description">Description</string>
     <string name="item_estimated_value">Estimated Value</string>
     <string name="item_title">Title</string>
+    <string name="preferred_items">Preferred Items</string>
 </resources>

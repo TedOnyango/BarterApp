@@ -27,13 +27,13 @@ public class ListActvity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_actvity);
         mFirebasedatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mFirebasedatabase.getReference().child("barterpp");
+        mDatabaseReference = mFirebasedatabase.getReference().child("barterapp");
         mChildListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 TextView tvItems = (TextView) findViewById(R.id.tvItems);
                 BarterItem bi = dataSnapshot.getValue(BarterItem.class);
-                tvItems.setText(tvItems.getText() + "\n" + bi.getTitle() );
+                tvItems.setText(tvItems.getText() + "\n" + bi.getTitle());
 
             }
 

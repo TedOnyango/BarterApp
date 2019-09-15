@@ -8,6 +8,8 @@ public class BarterItem {
     private String preferredItmes;
     private String imageUrl;
 
+    public BarterItem() {}
+
 
     public BarterItem(String title, String description, String estimatedValue, String preferredItmes, String imageUrl) {
         this.id = id;

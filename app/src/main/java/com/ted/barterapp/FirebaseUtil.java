@@ -19,6 +19,7 @@ public class FirebaseUtil {
        if (firebaseUtil == null) {
             new FirebaseUtil();
             mFirebasedatabase = FirebaseDatabase.getInstance();
+
             mBarterItems = new ArrayList<BarterItem>();
        }
     }

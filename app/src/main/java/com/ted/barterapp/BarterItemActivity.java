@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class InsertActivity extends AppCompatActivity {
+public class BarterItemActivity extends AppCompatActivity {
     private FirebaseDatabase mFirebasedatabase;
     private DatabaseReference mDatabaseReference;
     EditText txtTitle;

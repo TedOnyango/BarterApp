@@ -22,5 +22,6 @@ public class FirebaseUtil {
 
             mBarterItems = new ArrayList<BarterItem>();
        }
+       mDatabaseReference = mFirebasedatabase.getReference().child(ref);
     }
 }

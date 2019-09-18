@@ -34,8 +34,8 @@ public class InsertActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
-        mFirebasedatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mFirebasedatabase.getReference().child("barterapp");
+        mFirebasedatabase = FirebaseUtil.mFirebasedatabase;
+        mDatabaseReference = FirebaseUtil.mDatabaseReference;
 
 
         txtTitle = (EditText) findViewById(R.id.itemTitle);

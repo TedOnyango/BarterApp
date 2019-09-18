@@ -1,6 +1,7 @@
 package com.ted.barterapp;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,9 @@ import java.util.ArrayList;
 
 public class BarterItemAdapter extends RecyclerView.Adapter<BarterItemAdapter.BarterItemViewHolder>{
     public TextView tvTitle;
+    public TextView tvDescription;
+    public TextView tvPreferredItems;
+    public TextView tvEstimatedValue;
     ArrayList<BarterItem> items;
     private FirebaseDatabase mFirebasedatabase;
     private DatabaseReference mDatabaseReference;
@@ -93,9 +97,15 @@ public class BarterItemAdapter extends RecyclerView.Adapter<BarterItemAdapter.Ba
         public BarterItemViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+            tvDescription = (TextView) itemView.findViewById(R.id.tvDescription);
+            tvPreferredItems = (TextView) itemView.findViewById(R.id.tvPreferredItems);
+            tvEstimatedValue = (TextView) itemView.findViewById(R.id.tvEstimatedValue);
         }
         public void bind (BarterItem item) {
             tvTitle.setText(item.getTitle());
+            tvDescription.setText(item.getDescription());
+            tvPreferredItems.setText(item.getPreferredItmes());
+            tvEstimatedValue.setText(item.getEstimatedValue());
         }
     }
 }

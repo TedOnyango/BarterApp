@@ -30,7 +30,6 @@ public class BarterItemAdapter extends RecyclerView.Adapter<BarterItemAdapter.Ba
     private DatabaseReference mDatabaseReference;
     private ChildEventListener mChildListener;
     public BarterItemAdapter() {
-        FirebaseUtil.openFbReference("barterapp");
         mFirebasedatabase = FirebaseUtil.mFirebasedatabase;
         mDatabaseReference = FirebaseUtil.mDatabaseReference;
         items = FirebaseUtil.mBarterItems;

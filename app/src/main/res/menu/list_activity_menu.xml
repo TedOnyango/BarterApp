@@ -4,5 +4,8 @@
     <item android:id="@+id/insert_menu"
         android:title="Add Barter Item"
         app:showAsAction="never"/>
+    <item android:id="@+id/log_out_menu"
+        android:title="Logout"
+        app:showAsAction="never"/>
 
 </menu>

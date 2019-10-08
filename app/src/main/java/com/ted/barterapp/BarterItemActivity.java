@@ -32,7 +32,7 @@ public class BarterItemActivity extends AppCompatActivity {
     EditText txtEstimatedValue;
     EditText txtPreferredItmes;
     ImageView txtImageUrl;
-    Button uplpadButton;
+    Button uploadButton;
 
 
 
@@ -51,8 +51,8 @@ public class BarterItemActivity extends AppCompatActivity {
         txtEstimatedValue = (EditText) findViewById(R.id.itemValue);
         txtPreferredItmes = (EditText) findViewById(R.id.preferredItems);
 //        txtImageUrl = (ImageView) findViewById(R.id.itemImage);
-        uplpadButton = (Button) findViewById(R.id.uploadImage);
-        uplpadButton.setOnClickListener(new View.OnClickListener() {
+        uploadButton = (Button) findViewById(R.id.uploadImage);
+        uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);

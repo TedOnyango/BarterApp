@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,9 +18,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 
@@ -31,8 +37,9 @@ public class BarterItemActivity extends AppCompatActivity {
     EditText txtDescription;
     EditText txtEstimatedValue;
     EditText txtPreferredItmes;
-    ImageView txtImageUrl;
+    ImageView imageView;
     Button uploadButton;
+    BarterItem item;
 
 
 
@@ -50,7 +57,7 @@ public class BarterItemActivity extends AppCompatActivity {
         txtDescription = (EditText) findViewById(R.id.itemDescription);
         txtEstimatedValue = (EditText) findViewById(R.id.itemValue);
         txtPreferredItmes = (EditText) findViewById(R.id.preferredItems);
-//        txtImageUrl = (ImageView) findViewById(R.id.itemImage);
+        imageView = (ImageView) findViewById(R.id.itemImage);
         uploadButton = (Button) findViewById(R.id.uploadImage);
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,13 +112,52 @@ public class BarterItemActivity extends AppCompatActivity {
     }
 
     @Override
+
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICTURE_RESULT && resultCode == RESULT_OK) {
             Uri file = data.getData();
-            StorageReference reference = FirebaseUtil.mStorageReference.child(file.getLastPathSegment());
-            reference.putFile(file);
+            final StorageReference reference = FirebaseUtil.mStorageReference.child(file.getLastPathSegment());
+            UploadTask uploadTask = reference.putFile(file);
+            final Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    // Continue with the task to get the download URL
+                    return reference.getDownloadUrl();
+
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        String downloadURL = downloadUri.toString();
+                        showImage(downloadURL);
+                    } else {
+                        // Handle failures
+                        // ...
+                    }
+                }
+            });
 
         }
     }
+
+    public void showImage(String url) {
+        if (url != null && url.isEmpty() == false) {
+            int width = Resources.getSystem().getDisplayMetrics().widthPixels;
+            Picasso.get()
+                    .load(url)
+                    .resize(width, width*2/3)
+                    .centerCrop()
+                    .into(imageView);
+
+        }
+
+    }
 }
+

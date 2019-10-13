@@ -1,6 +1,8 @@
 package com.ted.barterapp;
 
-public class BarterItem {
+import java.io.Serializable;
+
+public class BarterItem implements Serializable {
     private String id;
     private String title;
     private String description;

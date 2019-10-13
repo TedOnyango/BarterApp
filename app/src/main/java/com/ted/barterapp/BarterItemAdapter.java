@@ -1,6 +1,7 @@
 package com.ted.barterapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import android.util.Log;
@@ -95,7 +96,8 @@ public class BarterItemAdapter extends RecyclerView.Adapter<BarterItemAdapter.Ba
         return items.size();
     }
 
-    public class BarterItemViewHolder extends RecyclerView.ViewHolder {
+    public class BarterItemViewHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener{
 
 
         public BarterItemViewHolder(@NonNull View itemView) {
@@ -105,6 +107,7 @@ public class BarterItemAdapter extends RecyclerView.Adapter<BarterItemAdapter.Ba
             tvPreferredItems = (TextView) itemView.findViewById(R.id.tvPreferredItems);
             tvEstimatedValue = (TextView) itemView.findViewById(R.id.tvEstimatedValue);
             imageItem = (ImageView) itemView.findViewById(R.id.itemImage);
+            itemView.setOnClickListener(this);
         }
 
         public void bind(BarterItem item) {
@@ -113,6 +116,16 @@ public class BarterItemAdapter extends RecyclerView.Adapter<BarterItemAdapter.Ba
             tvPreferredItems.setText(item.getPreferredItmes());
             tvEstimatedValue.setText(item.getEstimatedValue());
             showImage(item.getImageUrl());
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            Log.d("click", String.valueOf(position));
+            BarterItem selectedItem = items.get(position);
+            Intent intent = new Intent(v.getContext(), BarterItemActivity.class);
+            intent.putExtra("BarterItem", selectedItem);
+            v.getContext().startActivity(intent);
         }
     }
 

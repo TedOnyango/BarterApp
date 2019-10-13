@@ -39,7 +39,8 @@ public class BarterItemActivity extends AppCompatActivity {
     EditText txtPreferredItmes;
     ImageView imageView;
     Button uploadButton;
-    BarterItem item;
+    private BarterItem item;
+    private String imageUrl;
 
 
 
@@ -51,6 +52,11 @@ public class BarterItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_insert);
         mFirebasedatabase = FirebaseUtil.mFirebasedatabase;
         mDatabaseReference = FirebaseUtil.mDatabaseReference;
+        if (item==null) {
+            item = new BarterItem();
+        }
+        this.item = item;
+        showImage(item.getImageUrl());
 
 
         txtTitle = (EditText) findViewById(R.id.itemTitle);
@@ -98,7 +104,8 @@ public class BarterItemActivity extends AppCompatActivity {
         String description = txtDescription.getText().toString();
         String estimateValue = txtEstimatedValue.getText().toString();
         String preferredItems = txtPreferredItmes.getText().toString();
-        BarterItem item = new BarterItem(title, description, estimateValue, preferredItems, "");
+        String imageUrl = item.getImageUrl();
+        BarterItem item = new BarterItem(title, description, estimateValue, preferredItems, imageUrl);
         mDatabaseReference.push().setValue(item);
 
     }
@@ -136,6 +143,8 @@ public class BarterItemActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         Uri downloadUri = task.getResult();
                         String downloadURL = downloadUri.toString();
+
+                        item.setImageUrl(downloadURL);
                         showImage(downloadURL);
                     } else {
                         // Handle failures

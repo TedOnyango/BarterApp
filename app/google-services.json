@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "29943728601",
+    "firebase_url": "https://barterapp-95b88.firebaseio.com",
+    "project_id": "barterapp-95b88",
+    "storage_bucket": "barterapp-95b88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29943728601:android:50f9afed23931368bff1c8",
+        "android_client_info": {
+          "package_name": "com.ted.barterapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29943728601-6jtmvb6li9vd685sfvkpth10hsrkvcge.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ted.barterapp",
+            "certificate_hash": "290c397b5a39187da15e079673588bb5fd10eb94"
+          }
+        },
+        {
+          "client_id": "29943728601-pc4li5r4k4fc1oaqr5ucqf2ovngpb1q1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ted.barterapp",
+            "certificate_hash": "c71952f7adfd9f02aa12a3b74350bce78a831201"
+          }
+        },
+        {
+          "client_id": "29943728601-mf2n92v99rhvdfmpardfdk35h8ci67d7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQRKF-JDZDmMjBIiebeHxKiGRDedSJhZA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29943728601-mf2n92v99rhvdfmpardfdk35h8ci67d7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

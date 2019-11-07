@@ -97,7 +97,7 @@ public class BarterItemAdapter extends RecyclerView.Adapter<BarterItemAdapter.Ba
     }
 
     public class BarterItemViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener{
+            implements View.OnClickListener {
 
 
         public BarterItemViewHolder(@NonNull View itemView) {
@@ -123,9 +123,10 @@ public class BarterItemAdapter extends RecyclerView.Adapter<BarterItemAdapter.Ba
             int position = getAdapterPosition();
             Log.d("click", String.valueOf(position));
             BarterItem selectedItem = items.get(position);
-            Intent intent = new Intent(v.getContext(), BarterItemActivity.class);
+            Intent intent = new Intent(v.getContext(), ItemDetail.class);
             intent.putExtra("BarterItem", selectedItem);
             v.getContext().startActivity(intent);
+
         }
     }
 

@@ -104,7 +104,10 @@ public class BarterItemActivity extends AppCompatActivity {
         txtDescription.setText("");
         txtEstimatedValue.setText("");
         txtPreferredItmes.setText("");
+        imageView.setImageURI(Uri.parse(""));
         txtTitle.requestFocus();
+
+
     }
 
     private void saveBarterItem() {
@@ -115,6 +118,7 @@ public class BarterItemActivity extends AppCompatActivity {
         String imageUrl = item.getImageUrl();
         BarterItem item = new BarterItem(title, description, estimateValue, preferredItems, imageUrl);
         mDatabaseReference.push().setValue(item);
+
 
     }
 

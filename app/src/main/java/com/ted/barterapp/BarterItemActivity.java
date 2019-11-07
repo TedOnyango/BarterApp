@@ -54,16 +54,6 @@ public class BarterItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_insert);
         mFirebasedatabase = FirebaseUtil.mFirebasedatabase;
         mDatabaseReference = FirebaseUtil.mDatabaseReference;
-        Intent intent = getIntent();
-        BarterItem item = (BarterItem) intent.getSerializableExtra("BarterItem");
-        if (item==null) {
-            item = new BarterItem();
-        }
-        this.item = item;
-//        txtTitle.setText(item.getTitle());
-//        txtDescription.setText(item.getDescription());
-//        txtEstimatedValue.setText(item.getEstimatedValue());
-//        txtPreferredItmes.setText(item.getPreferredItmes());
 
         showImage(item.getImageUrl());
         txtTitle = (EditText) findViewById(R.id.itemTitle);

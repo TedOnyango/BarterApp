@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "29943728601-5n21615ajimpen7rejmpjbjltnmfkn0p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ted.barterapp",
+            "certificate_hash": "333a4b6bd0d34fd2124937951152dea4eb6e35ff"
+          }
+        },
+        {
           "client_id": "29943728601-6jtmvb6li9vd685sfvkpth10hsrkvcge.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -86,13 +86,15 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 User user = new User();
                 user.setName(userEmail.substring(0, userEmail.indexOf("@")));
                 user.setPhone(userPhone);
+                user.setEmail(userEmail);
+                user.setProfileImage("");
                 user.setUser_id(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 FirebaseDatabase.getInstance().getReference().child(getString(R.string.dbnode_user))
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    FirebaseAuth.getInstance().signOut();
+                                    firebaseAuth.getInstance().signOut();
                                     progressDialog.cancel();
 
                                 }
@@ -101,7 +103,9 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                             });
 
 
+
                     }
+
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {

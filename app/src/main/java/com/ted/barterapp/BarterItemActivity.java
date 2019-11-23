@@ -55,14 +55,20 @@ public class BarterItemActivity extends AppCompatActivity {
         mFirebasedatabase = FirebaseUtil.mFirebasedatabase;
         mDatabaseReference = FirebaseUtil.mDatabaseReference;
 
-        showImage(item.getImageUrl());
-        txtTitle = (EditText) findViewById(R.id.itemTitle);
-        txtDescription = (EditText) findViewById(R.id.itemDescription);
-        txtEstimatedValue = (EditText) findViewById(R.id.itemValue);
-        txtPreferredItmes = (EditText) findViewById(R.id.preferredItems);
-        imageView = (ImageView) findViewById(R.id.itemImage);
+        if(imageUrl == null){
+            return;
+        }
+        else {
+            showImage(item.getImageUrl());
 
-        uploadButton = (Button) findViewById(R.id.uploadImage);
+        }
+        txtTitle = findViewById(R.id.itemTitle);
+        txtDescription = findViewById(R.id.itemDescription);
+        txtEstimatedValue = findViewById(R.id.itemValue);
+        txtPreferredItmes = findViewById(R.id.preferredItems);
+        imageView = findViewById(R.id.itemImage);
+
+        uploadButton = findViewById(R.id.uploadImage);
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

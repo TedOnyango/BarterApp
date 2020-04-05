@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "29943728601-0if32vksdklvqn4lciqk7ndroa6mdvmu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ted.barterapp",
+            "certificate_hash": "fbcdb1da14ac6eca1c5fdd9f11a6f25ac0001388"
+          }
+        },
+        {
+          "client_id": "29943728601-802mi2a9bt89konp3knuqtfn76lvsujo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ted.barterapp",
+            "certificate_hash": "d9fb478d45b78bc662ea79709b0261746482357c"
+          }
+        },
+        {
           "client_id": "29943728601-5n21615ajimpen7rejmpjbjltnmfkn0p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
